@@ -249,7 +249,7 @@ if DEBUG or not (EMAIL_HOST_USER and EMAIL_HOST_PASSWORD):
             "You should setup `SENDGRID_USERNAME`____1 and `SENDGRID_PASSWORD` env vars to send emails."
         )
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-    logging.warning(env.str("DATABASE_URL"))
+    logging.warning(DATABASES)
 
 
 # GCP config
