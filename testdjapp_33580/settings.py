@@ -38,6 +38,8 @@ try:
     name = client.secret_version_path(project, settings_name, "latest")
     payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
     env.read_env(io.StringIO(payload))
+    for k, v in sorted(os.environ.items()):
+        print(k+':', v)
 except (DefaultCredentialsError, PermissionDenied):
     pass
 
