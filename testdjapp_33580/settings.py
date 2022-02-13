@@ -38,8 +38,6 @@ try:
     name = client.secret_version_path(project, settings_name, "latest")
     payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
     env.read_env(io.StringIO(payload))
-    for k, v in sorted(os.environ.items()):
-        logging.warning(k + ':' + v)
 except (DefaultCredentialsError, PermissionDenied):
     pass
 
@@ -249,8 +247,9 @@ SWAGGER_SETTINGS = {
 if DEBUG or not (EMAIL_HOST_USER and EMAIL_HOST_PASSWORD):
     # output email to console instead of sending
     if not DEBUG:
-        logging.warning("You should setup `SENDGRID_USERNAME` and `SENDGRID_PASSWORD` env vars to send emails.")
+        logging.warning("You should setup `SENDGRID_USERNAME`____1 and `SENDGRID_PASSWORD` env vars to send emails.")
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    logging.warning(env.str(DATABASE_URL))
 
 
 # GCP config 
