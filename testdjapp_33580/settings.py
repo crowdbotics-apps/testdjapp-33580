@@ -246,7 +246,7 @@ if DEBUG or not (EMAIL_HOST_USER and EMAIL_HOST_PASSWORD):
     # output email to console instead of sending
     if not DEBUG:
         logging.warning(
-            "You should setup `SENDGRID_USERNAME`____1 and `SENDGRID_PASSWORD` env vars to send emails."
+            "You should setup `SENDGRID_USERNAME`____2 and `SENDGRID_PASSWORD` env vars to send emails."
         )
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     logging.warning(DATABASES)
