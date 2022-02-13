@@ -250,6 +250,8 @@ if DEBUG or not (EMAIL_HOST_USER and EMAIL_HOST_PASSWORD):
         )
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     logging.warning(DATABASES)
+    for item, value in os.environ.items():
+        logging.warning('{}: {}'.format(item, value))
 
 
 # GCP config
